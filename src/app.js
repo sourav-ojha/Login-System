@@ -50,7 +50,7 @@ app.post('/register', async (req, res) => {
         const pass = req.body.password;
         const cpass = req.body.confirmpassword;
         if (pass === cpass){
-            const newUser = new Register({
+            const newUser = new Register( {
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
                 username: req.body.username,
@@ -59,7 +59,7 @@ app.post('/register', async (req, res) => {
                 email: req.body.email,
                 password: pass,
                 confirmpassword: cpass,
-            })
+}  )
             const token =await newUser.generateAuthToken();
             console.log(token);
             res.cookie("jwt", token, {
